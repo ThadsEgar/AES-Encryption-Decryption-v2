@@ -10,7 +10,7 @@ public class Encryptor {
 	public byte[] keyValue;
 	public static final String ALGORITHM = "AES";
 	
-	public Encryptor(String fileLocation, String key)
+	public Encryptor(String key)
 	{
 		//Put
 		this.keyValue = key.getBytes();
