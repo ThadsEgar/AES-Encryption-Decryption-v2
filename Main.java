@@ -11,6 +11,7 @@ public class Main {
 		//create temp key and encryptor
 		String key = "5d3d2d5d8g4b1g3d";
 		Encryptor e = new Encryptor(key);
+		Decryptor d = new Decryptor(key);
 		
 		//Test file
 		File file = new File("Test.txt");
@@ -18,6 +19,7 @@ public class Main {
 		try{
 		//create new file for input encrypted text to go in
 		File newFile = new File("Encrypted.txt");
+		
 		if(file.createNewFile())
 		{
 			
@@ -44,6 +46,29 @@ public class Main {
 			write.write(encrypt+"\n");
 		}
 		write.close();
+		//decrypt
+		String decrypt;
+		
+		File newFile2 = new File("Decrypted.txt");
+		FileWriter write2 = new FileWriter(newFile2);
+		if(newFile2.createNewFile())
+		{
+			
+		}else{
+			System.out.println("File already exists.");
+		}
+		//scan encryptedfile
+		Scanner scan2 = new Scanner(newFile);
+		while(scan2.hasNext())
+		{
+			input = scan2.nextLine();
+			decrypt = d.decrypt(input);
+			
+			write2.write(decrypt+"\n");
+		}
+		write2.close();
+	
+		
 			
 		}catch(Exception exception)
 		{
